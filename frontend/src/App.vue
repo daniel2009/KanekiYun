@@ -3,7 +3,7 @@
     <br />
     <navbar></navbar>
     <br />
-    <!-- <router-view></router-view> -->
+    <router-view></router-view>
     <br /><br />
     <!-- <h4> Welcome to your Vue.js app </h4>
     <hr />
@@ -54,9 +54,10 @@
 
 <script>
 import Navbar from './components/Navbar'
+import MainPanel from './components/MainPanel'
 
 export default {
-  components: { Navbar }
+  components: { Navbar, MainPanel }
 }
 </script>
 

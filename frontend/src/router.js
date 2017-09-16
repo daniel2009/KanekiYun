@@ -5,11 +5,12 @@ Vue.use(Router)
 
 // ===================== Pages Components ======================
 import Navbar from './components/Navbar'
+import MainPanel from './components/MainPanel'
 
 // ==================== Router registration ====================
 export default new Router({
   mode: 'hash',
   routes: [
-    { path: '/', component: Navbar },
+    { path: '/', component: MainPanel },
   ]
 })
