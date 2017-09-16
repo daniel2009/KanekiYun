@@ -3,9 +3,9 @@
     <br />
     <navbar></navbar>
     <br />
-    <router-view></router-view>
+    <!-- <router-view></router-view> -->
     <br /><br />
-    <h4> Welcome to your Vue.js app </h4>
+    <!-- <h4> Welcome to your Vue.js app </h4>
     <hr />
     <p>
       To get a better understanding of how this boilerplate works, please check out
@@ -48,7 +48,7 @@
       </ul>
     </p>
     <hr />
-    <h4> Build an amazing application ! </h4>
+    <h4> Build an amazing application ! </h4> -->
   </div>
 </template>
 
