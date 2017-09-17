@@ -55,9 +55,10 @@
 <script>
 import Navbar from './components/Navbar'
 import MainPanel from './components/MainPanel'
+import Signup from './components/Signup'
 
 export default {
-  components: { Navbar, MainPanel }
+  components: { Navbar, MainPanel, Signup }
 }
 </script>
 
