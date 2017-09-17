@@ -12,21 +12,14 @@
             </tr>
           </thead>
           <tbody>
-            <!-- <tr v-for="message in messages"> -->
-            <tr>
+            <tr v-for="message in messages">
               <td>
                 <div class="panel panel-default">
-                  <!-- <div class="panel-heading">
+                  <div class="panel-heading">
                     <h3 class="panel-title">{{ message.username }} @ {{ message.date | date-format }}</h3>
                   </div>
                   <div class="panel-body" >
                     {{ message.description }}
-                  </div> -->
-                  <div class="panel-heading">
-                    <h3 class="panel-title">username @ data</h3>
-                  </div>
-                  <div class="panel-body">
-                    this is a description
                   </div>
                 </div>
               </td>
@@ -43,11 +36,11 @@
   import Vue from 'vue'
   // import Login from './Login'
 
-  // Vue.filter('date-format', function (value) {
-  //   let date = value.split('T')[0];
-  //   let time = value.split('T')[1].split('+')[0].substring(0,5);
-  //   return date + " " + time;
-  // });
+  Vue.filter('date-format', function (value) {
+    let date = value.split('T')[0];
+    let time = value.split('T')[1].split('+')[0].substring(0,5);
+    return date + " " + time;
+  });
 
   export default {
         // components: { Login },
@@ -58,27 +51,27 @@
             // msg : 'main-panel',
             messages : ''
           }
+        },
+        created: function () {
+          this.getMessages();
+        },
+        methods : {
+          getMessages () {
+            this.$http.get('http://localhost:8081/messages').then((res) => {
+              this.messages = res.body._embedded.messages.reverse();
+              console.log(this.messages);
+              // $(document).ready(function() {
+              //   $('#myTable').DataTable({
+              //     "bSort" : false,
+              //     "lengthMenu" : [[3,5,10,-1], [3,5,10,"ALL"]],
+              //     stateSave: true
+              //   });
+              // });
+            }, (err) => {
+              console.log(err);
+            });
+          }
         }
-        // created: function () {
-        //   this.getMessages();
-        // },
-        // methods : {
-        //   getMessages () {
-        //     this.$http.get('http://localhost:8081/message').then((res) => {
-        //       this.messages = res.body._embedded.message.reverse();
-        //       console.log(this.messages);
-        //       $(document).ready(function() {
-        //         $('#myTable').DataTable({
-        //           "bSort" : false,
-        //           "lengthMenu" : [[3,5,10,-1], [3,5,10,"ALL"]],
-        //           stateSave: true
-        //         });
-        //       });
-        //     }, (err) => {
-        //       console.log(err);
-        //     });
-        //   }
-        // }
       }
 </script>
 
