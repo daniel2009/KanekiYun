@@ -2,7 +2,7 @@
   <div >
     <div class="row">
       <div class="col-md-4">
-        <!-- <login></login> -->
+        <login></login>
       </div>
       <div class="col-md-8">
         <table id="myTable" width="100%">
@@ -34,7 +34,7 @@
 
 <script>
   import Vue from 'vue'
-  // import Login from './Login'
+  import Login from './Login'
 
   Vue.filter('date-format', function (value) {
     let date = value.split('T')[0];
@@ -43,7 +43,7 @@
   });
 
   export default {
-        // components: { Login },
+        components: { Login },
 
         name: 'main-panel',
         data () {
