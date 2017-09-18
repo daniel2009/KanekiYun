@@ -1,11 +1,9 @@
 <template>
-  <div id="app" class="container">
-    <br />
-    <navbar></navbar>
-    <br />
-    <router-view></router-view>
-    <br /><br />
-    
+  <div id="app">
+    <div class="container">
+      <navbar></navbar>
+      <router-view id="router-view"></router-view>
+    </div>
   </div>
 </template>
 
@@ -13,9 +11,10 @@
 import Navbar from './components/Navbar'
 import MainPanel from './components/MainPanel'
 import Signup from './components/Signup'
+import Login from './components/Login'
 
 export default {
-  components: { Navbar, MainPanel, Signup }
+  components: { Navbar, MainPanel, Signup, Login }
 }
 </script>
 
