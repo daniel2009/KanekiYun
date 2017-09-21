@@ -42,10 +42,13 @@
 
 <script type="text/javascript">
   export default {
-    name: 'sign-up',
+    name: 'signup',
     data () {
       return {
         signed : false,
+        loggedIn :false,
+        authenFailed : false,
+
         user : {
           username : '',
           password : '',
@@ -60,6 +63,15 @@
         this.$http.post(url, this.user).then((res) => {
           console.log(res);
           this.signed=true;
+          let mainUrl = 'http://localhost:8080';
+
+          this.loggedIn = true;
+          localStorage.setItem('loggedIn', 'true');
+          localStorage.setItem('username', this.user.username);
+          setTimeout(function(mainUrl) {
+            location.assign(mainUrl);
+          }, 2000 );
+          
         }, (err) => {
           console.log(err);
         })

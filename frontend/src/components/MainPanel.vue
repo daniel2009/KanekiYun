@@ -57,16 +57,16 @@
         },
         methods : {
           getMessages () {
-            this.$http.get('http://localhost:8081/messages').then((res) => {
-              this.messages = res.body._embedded.messages.reverse();
+            this.$http.get('http://localhost:8081/message').then((res) => {
+              this.messages = res.body._embedded.message.reverse();
               console.log(this.messages);
-              // $(document).ready(function() {
-              //   $('#myTable').DataTable({
-              //     "bSort" : false,
-              //     "lengthMenu" : [[3,5,10,-1], [3,5,10,"ALL"]],
-              //     stateSave: true
-              //   });
-              // });
+              $(document).ready(function() {
+                $('#myTable').DataTable({
+                  "bSort" : false,
+                  "lengthMenu" : [[3,5,10,-1], [3,5,10,"ALL"]],
+                  stateSave: true
+                });
+              });
             }, (err) => {
               console.log(err);
             });

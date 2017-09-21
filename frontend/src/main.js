@@ -5,6 +5,8 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import VueTranslate from 'vue-translate-plugin'
+import dt from 'datatables.net'
+import 'datatables.net-dt/css/jquery.datatables.css'
 
 Vue.use(VueResource)
 Vue.use(VueTranslate)

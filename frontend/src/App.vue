@@ -12,9 +12,11 @@ import Navbar from './components/Navbar'
 import MainPanel from './components/MainPanel'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import Post from './components/Post'
+import GoogleSSO from './components/GoogleSSO'
 
 export default {
-  components: { Navbar, MainPanel, Signup, Login }
+  components: { Navbar, MainPanel, Signup, Login, Post, GoogleSSO }
 }
 </script>
 
