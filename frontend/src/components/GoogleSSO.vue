@@ -5,6 +5,8 @@
 </template>
 
 <script type="text/javascript">
+	import { apiDomain, signupUrl, googleUrl } from '../config'
+
 	export default {
 		name: 'google-sso',
 		data() {
@@ -27,8 +29,7 @@
 			},
 
 			fetchEmail () {
-				let url = 'https://www.googleapis.com/plus/v1/people/me'
-		        this.$http.get(url, { headers : {'Authorization' : 'Bearer ' + this.access_token }}).then((res) => {
+		        this.$http.get(googleUrl, { headers : {'Authorization' : 'Bearer ' + this.access_token }}).then((res) => {
 		          console.log(res);
 		          this.username = res.body.displayName;
 		          this.email = res.body.emails[0].value;
@@ -36,9 +37,9 @@
 		          if (this.email != null) {
 		          	localStorage.setItem('username', this.username);
 		          	localStorage.setItem('loggedIn', 'true');
-		          	location.assign('http://localhost:8080');
+		          	location.assign(apiDomain);
 		          } else {
-		          	location.assign("http://localhost:8080/signup");
+		          	location.assign(signupUrl);
 		          }
 		          
 		          // this.sendTokenAndEmail();

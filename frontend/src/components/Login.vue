@@ -14,6 +14,7 @@
         </div>
         <a class="btn btn-primary btn-block" @click="login">Sign in</a>
         <a class="btn btn-danger btn-block" @click="googleUrl">Google +</a>
+        <a class="btn btn-primary btn-block" @click="login">Facebook</a>
 
       </form><!-- /form -->
     </div>
@@ -30,6 +31,7 @@
 
 <script type="text/javascript">
   import Post from './Post'
+  import { backendUrl } from '../config'
 
   export default {
     components: { Post },
@@ -54,7 +56,7 @@
     } ,
     methods : {
       login () {
-        let url = "http://localhost:8081/login";
+        let url = backendUrl + '/login';
         let params = 'username='+this.user.username+'&password='+this.user.password;
         // let headers = new Headers(
         // {
@@ -80,7 +82,7 @@
         },
 
         logout () {
-          let url = "http://localhost:8081/logout";
+          let url = backendUrl + '/logout';
           this.$http.get(url).then((res) => {
             localStorage.setItem('loggedIn', 'false');
             localStorage.setItem('username', '');
@@ -93,8 +95,12 @@
 
           location.assign(url);
 
+        },
+        facebookUrl() {
+          let url = '';
+          location.assign(url);
         }
-      }
+       }
     }
 
   </script>
