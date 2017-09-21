@@ -4,7 +4,9 @@
       <p v-if="authFailed">Invalid Username and Password</p>
       <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
       <p id="profile-name" class="profile-name-card"></p>
-      <form class="form-signin">{{user.username}} {{user.password}}
+      <form class="form-signin">
+        <div id="fb-root"></div>
+        
         <input v-model="user.username" type="text" name="username" class="form-control" placeholder="Username" required autofocus>
         <input v-model="user.password" type="password" name="password" class="form-control" placeholder="Password" required>
         <div id="remember" class="checkbox">
@@ -15,7 +17,7 @@
         <a class="btn btn-primary btn-block" @click="login">Sign in</a>
         <a class="btn btn-danger btn-block" @click="googleUrl">Google +</a>
         <a class="btn btn-primary btn-block" @click="facebookUrl">Facebook</a>
-
+        <!-- <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false" @click="facebookUrl"></div> -->
       </form><!-- /form -->
     </div>
     <div v-if="loggedIn">
@@ -98,12 +100,18 @@
         },
         facebookUrl() {
           let url = 'https://www.facebook.com/dialog/oauth?scope=email&response_type=token&client_id=1765171110442477&redirect_uri=' + tokenFacebook;
-          console.log(tokenFacebook);
+          // console.log(tokenFacebook);
           location.assign(url);
         }
        }
     }
-
+    // (function(d, s, id) {
+    //         var js, fjs = d.getElementsByTagName(s)[0];
+    //         if (d.getElementById(id)) return;
+    //         js = d.createElement(s); js.id = id;
+    //         js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1765171110442477";
+    //         fjs.parentNode.insertBefore(js, fjs);
+    //         }(document, 'script', 'facebook-jssdk'));
   </script>
 
 
