@@ -48,6 +48,8 @@ public class RestResource {
 	@RequestMapping("/tokenValidation")
     public ResponseEntity tokenValidation(@Param("token") String token, @Param("email") String email) throws IOException, JSONException {
         HttpStatus httpStatus = userService.validateToken(token);
+        
+        System.out.println(token);
 
         if (httpStatus.is2xxSuccessful()) {
             User user = userRepository.findByEmail(email);

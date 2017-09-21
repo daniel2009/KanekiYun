@@ -9,6 +9,7 @@ import MainPanel from './components/MainPanel'
 import Signup from './components/Signup'
 // import Login from './components/Login'
 import GoogleSSO from './components/GoogleSSO'
+import FBSSO from './components/FBSSO'
 
 // ==================== Router registration ====================
 export default new Router({
@@ -17,6 +18,7 @@ export default new Router({
     { path: '/', component: MainPanel },
     { path: '/signup', component: Signup },
     // { path: '/login', component: Login }
-    { path: '/token', component: GoogleSSO }
+    { path: '/token_google', component: GoogleSSO },
+    { path: '/token_facebook', component: FBSSO }
   ]
 })

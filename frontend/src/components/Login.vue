@@ -14,7 +14,7 @@
         </div>
         <a class="btn btn-primary btn-block" @click="login">Sign in</a>
         <a class="btn btn-danger btn-block" @click="googleUrl">Google +</a>
-        <a class="btn btn-primary btn-block" @click="login">Facebook</a>
+        <a class="btn btn-primary btn-block" @click="facebookUrl">Facebook</a>
 
       </form><!-- /form -->
     </div>
@@ -31,7 +31,7 @@
 
 <script type="text/javascript">
   import Post from './Post'
-  import { backendUrl } from '../config'
+  import { backendUrl, tokenGoogle, tokenFacebook } from '../config'
 
   export default {
     components: { Post },
@@ -91,13 +91,14 @@
         },
 
         googleUrl () {
-          let url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=email&response_type=token&client_id=882506449230-j09dgig1h2ee2tc9bg1q0mplp1g6sp5k.apps.googleusercontent.com&redirect_uri=http://localhost:8080/token';
+          let url = 'https://accounts.google.com/o/oauth2/v2/auth?scope=email&response_type=token&client_id=882506449230-j09dgig1h2ee2tc9bg1q0mplp1g6sp5k.apps.googleusercontent.com&redirect_uri=' + tokenGoogle;
 
           location.assign(url);
 
         },
         facebookUrl() {
-          let url = '';
+          let url = 'https://www.facebook.com/dialog/oauth?scope=email&response_type=token&client_id=1765171110442477&redirect_uri=' + tokenFacebook;
+          console.log(tokenFacebook);
           location.assign(url);
         }
        }
